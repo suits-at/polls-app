@@ -1,0 +1,11 @@
+<template name="mainLayout">
+
+  <h1>Welcome To My Application</h1>
+
+  <ul class="linkList">
+    <li><a href="{{ path_projects_index }}">Projects</a></li>
+  </ul>
+
+  {{>Template.dynamic template=content data=params}}
+
+</template>

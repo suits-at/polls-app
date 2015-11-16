@@ -1,0 +1,28 @@
+<template name="projects_index">
+
+  <h2>List of your Projects</h2>
+
+  <a href="{{path_projects_create}}">Create new Project</a>
+
+    <ul id="projects_list">
+        <li v-for="project in projects" v-on:click.prevent="doStuff(project._id)">
+            [[project.title]]
+        </li>
+    </ul>
+
+
+</template>
+
+<template name="projects_create">
+
+  <h2>Create a new Project</h2>
+
+  <form id="projects_create_form" v-on:submit.prevent="submit">
+
+    <input type="text" v-model="title" placeholder="Title" autofocus>
+
+    <button type="submit" name="button">Create</button>
+
+  </form>
+
+</template>
