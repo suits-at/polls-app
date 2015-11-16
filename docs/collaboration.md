@@ -1,2 +1,2 @@
 ### DOCS
-hier wird reingeschrieben was gemacht wird, wer was macht etc.
+Hier steht drinnen worauf wir uns geeinigt haben, was gemacht wird, wer welche Teile übernimmt...
