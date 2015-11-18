@@ -8,11 +8,11 @@ Wenn man Admin ist, gibt es eine Übersicht von allen erstellten Umfragen und ei
 
 ### Issues:  
 
-Geri: Ordnerstruktur, Collectionstruktur, Beispielroutes, Linkgenerierung der Umfrage + View, View: Anzeige der Umfragen + Löschen + Sharen
+Geri: Ordnerstruktur, Collectionstruktur, Beispielroutes, Linkgenerierung der Umfrage + View
 
-Fabian: View: Empfängerseite + Auswahl/Bestätigung, Chart erstellen/Anzeige der Umfrageergebnisse, 
+Fabian: View: Empfängerseite + Auswahl/Bestätigung, Chart erstellen/Anzeige der Umfrageergebnisse
 
-Katrin: erneuert die Mockups bis 18.11. 23.59 Uhr, Design (HTML & CSS)
+Katrin: erneuert die Mockups bis 18.11. 23.59 Uhr, Design (HTML & CSS), View: Anzeige der Umfragen + Löschen + Sharen
 
 Daniel: Namen, Logo, Login, Github
 
