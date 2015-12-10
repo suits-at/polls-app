@@ -10,13 +10,15 @@ Wenn man Admin ist, gibt es eine Übersicht von allen erstellten Umfragen und ei
 
 Geri: Ordnerstruktur, Collectionstruktur, Beispielroutes, Linkgenerierung der Umfrage + View
 
-Fabian: View: Empfängerseite + Auswahl/Bestätigung, Chart erstellen/Anzeige der Umfrageergebnisse
+Fabian: View: Empfängerseite + Name (Person) + Auswahl/Bestätigung, Chart erstellen/Anzeige der Umfrageergebnisse (Accordion neu dazu), Adminseite: Anzahl der Personen die noch nicht abgestimmt haben
 
 Katrin: erneuert die Mockups bis 18.11. 23.59 Uhr, Design (HTML & CSS), View: Anzeige der Umfragen + Löschen + Sharen
 
 Daniel: Namen, Logo, Login, Github
 
-Sebastian: Milestones, Issues, + Zuweisung an Personen, Titel/Description/Antwormöglichkeiten/Zeit/Diagrammauswahl
+Sebastian: Milestones, Issues, + Zuweisung an Personen, Titel/Description/Antwortmöglichkeiten/Zeit/Diagrammauswahl
+
+TODO: Umfrage teilen (WhatsApp, Email, Facebook)
 
 
 ### Milestones:
