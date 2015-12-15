@@ -14,7 +14,7 @@ Fabian: View: Empfängerseite + Name (Person) + Auswahl/Bestätigung, Chart erst
 
 Katrin: erneuert die Mockups bis 18.11. 23.59 Uhr, Design (HTML & CSS), View: Anzeige der Umfragen + Löschen + Sharen
 
-Daniel: Namen, Logo, Login, Github
+Daniel: Namen, Logo, Login, Github, Präsentation
 
 Sebastian: Milestones, Issues, + Zuweisung an Personen, Titel/Description/Antwortmöglichkeiten/Zeit/Diagrammauswahl
 
