@@ -22,4 +22,4 @@ TODO: Umfrage teilen (WhatsApp, Email, Facebook)
 
 
 ### Milestones:
-Umfrage erstellen
+04.01.2016: Grobversion fertig
