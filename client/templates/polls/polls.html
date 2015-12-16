@@ -1,0 +1,46 @@
+<template name="polls_index">
+
+  <h2>List of your Polls</h2>
+
+  <a href="{{path_polls_create}}">Create new Poll</a>
+
+    <ul id="polls_list">
+        <li v-for="poll in polls" v-on:click.prevent="doStuff(poll._id)">
+            [[poll.title]]
+            <ul>
+              <li>CreatedAt: [[poll.createdAt]]</li>
+              <li>Format CA: [[poll.created()]]</li>
+              <li>Description: [[poll.description]]</li>
+              <li>Duration: [[poll.duration]]</li>
+              <li>Options:</li>
+                <ul>
+                  <li v-for="option in poll.options_poll">
+                    [[option.optiontitle]]
+                  </li>
+                </ul>
+            </ul>
+        </li>
+    </ul>
+
+
+</template>
+
+<template name="polls_create">
+
+  <h2>Create a new Poll</h2>
+
+  <form id="polls_create_form" v-on:submit.prevent="submit">
+
+    <input type="text" v-model="title" placeholder="Title" autofocus>
+    <input type="text" v-model="description" placeholder="Description" autofocus>
+    <input type="text" v-model="duration" placeholder="Duration" autofocus>
+    
+    <p>Options</p>
+    <input type="text" v-model="option1" placeholder="option1" autofocus>
+    <input type="text" v-model="option2" placeholder="option2" autofocus>
+
+    <button type="submit" name="button">Create</button>
+
+  </form>
+
+</template>
