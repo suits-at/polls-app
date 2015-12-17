@@ -3,4 +3,5 @@ Template.mainLayout.helpers
 
 Template.mainLayout.helpers
   path_polls_index: -> FlowRouter.path 'polls_index'
+
 Template.mainLayout.onRendered ->

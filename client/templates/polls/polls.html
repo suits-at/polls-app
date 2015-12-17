@@ -4,23 +4,26 @@
 
   <a href="{{path_polls_create}}">Create new Poll</a>
 
-    <ul id="polls_list">
-        <li v-for="poll in polls" v-on:click.prevent="doStuff(poll._id)">
-            [[poll.title]]
-            <ul>
-              <li>CreatedAt: [[poll.createdAt]]</li>
-              <li>Format CA: [[poll.created()]]</li>
-              <li>Description: [[poll.description]]</li>
-              <li>Duration: [[poll.duration]]</li>
-              <li>Options:</li>
-                <ul>
-                  <li v-for="option in poll.options_poll">
-                    [[option.optiontitle]]
-                  </li>
-                </ul>
-            </ul>
-        </li>
-    </ul>
+  <ul id="polls_list">
+    <li v-if="loader">
+      Loading...
+    </li>
+    <li v-for="poll in polls" v-cloak v-on:click.prevent="doStuff(poll._id)">
+      [[poll.title]]
+      <ul>
+        <li>CreatedAt: [[poll.createdAt]]</li>
+        <li>Format CA: [[poll.created()]]</li>
+        <li>Description: [[poll.description]]</li>
+        <li>Duration: [[poll.duration]]</li>
+        <li>Options:</li>
+        <ul>
+          <li v-for="option in poll.options_poll">
+            [[option.optiontitle]]
+          </li>
+        </ul>
+      </ul>
+    </li>
+  </ul>
 
 
 </template>

@@ -8,16 +8,19 @@ Template.polls_index.helpers
 
 Template.polls_index.onRendered ->
   new Vue {
-    el: '#polls_list'
+    el: '[vue=polls_list]'
+    data:
+      polls: []
+      loader: true
+    ready: ->
+      @loader = false
+    created: ->
+      @subscription = Meteor.subscribe('allPolls')
+      Tracker.autorun ->
+        @polls = Polls.find({}, sort: createdAt: -1).fetch()
     methods:
       doStuff: (pollsId) ->
         alert "Polls id = #{pollsId}"
-    # Da muss umbedingt eine subscribe Methode eingebaut werden -> wenn
-    # Hier ist der Link wie es ca. funktionieren sollte
-    # https://github.com/codebryo/logapp/blob/master/client/templates/projects/projects_index.js
-    sync:
-      polls: ->
-        return Polls.find {}, {sort: {createdAt: -1}}
   }
 
 Template.polls_create.onRendered ->
