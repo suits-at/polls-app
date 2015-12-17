@@ -8,7 +8,7 @@ Template.polls_index.helpers
 
 Template.polls_index.onRendered ->
   new Vue {
-    el: '[vue=polls_list]'
+    el: '#polls_list'
     data:
       polls: []
       loader: true
@@ -16,7 +16,7 @@ Template.polls_index.onRendered ->
       @loader = false
     created: ->
       @subscription = Meteor.subscribe('allPolls')
-      Tracker.autorun ->
+      Tracker.autorun =>
         @polls = Polls.find({}, sort: createdAt: -1).fetch()
     methods:
       doStuff: (pollsId) ->
