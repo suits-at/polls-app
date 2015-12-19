@@ -26,3 +26,4 @@ check
 ecmascript
 jagi:astronomy
 jagi:astronomy-validators
+momentjs:moment
