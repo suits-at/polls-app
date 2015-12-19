@@ -27,3 +27,6 @@ ecmascript
 jagi:astronomy
 jagi:astronomy-validators
 momentjs:moment
+meteortoys:allthings
+accounts-ui
+accounts-password
