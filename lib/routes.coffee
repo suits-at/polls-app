@@ -4,19 +4,6 @@ FlowRouter.route '/',
     BlazeLayout.render 'mainLayout'
 
 #
-# Routes for Projects
-#
-FlowRouter.route '/projects',
-  name: 'projects_index'
-  action: ->
-    BlazeLayout.render 'mainLayout', { content: 'projects_index' }
-
-FlowRouter.route '/projects/new',
-  name: 'projects_create'
-  action: ->
-    BlazeLayout.render 'mainLayout', { content: 'projects_create' }
-
-#
 # Routes for Polls
 #
 FlowRouter.route '/polls',
