@@ -1,8 +1,10 @@
 <template name="mainLayout">
-
-  <h1>Welcome To My Application</h1>
-  <a href="{{ path_polls_index }}">show all Polls</a>
-
-    {{>Template.dynamic template=content data=params}}
-
+    <header>
+        <h1>Polls made easy!</h1>
+        {{> loginButtons}}
+    </header>
+    <main>
+        <a href="{{ path_polls_index }}">show all Polls</a>
+        {{>Template.dynamic template=content data=params}}
+    </main>
 </template>
