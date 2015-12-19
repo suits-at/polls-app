@@ -40,12 +40,17 @@
     <label for="duration">End date of poll:</label><br />
     <input type="date" id="duration" v-model="duration" autofocus /><br />
     
-    <p>Options</p>
+    Options<br />
     <input type="text" v-model="option1" placeholder="option1" autofocus><br />
     <input type="text" v-model="option2" placeholder="option2" autofocus><br />
+    <button type="button" title="add Option">add Option</button><br />
 
-    <button type="submit" name="button">Create</button>
-
+    Which type of chart do you want to use?<br />
+    <input type="radio" name="chart" id="pie">
+      <label for="pie">Pie chart</label><br />
+    <input type="radio" name="chart" id="column">
+      <label for="column">Column chart</label><br />
+    <button type="submit" name="button">Create poll</button>
   </form>
 
 </template>
