@@ -1,0 +1,9 @@
+<template name="clogs_form">
+    <form  vue="clogs_form" v-on:submit.prevent="submit">
+
+        <input type="text" v-model="clog.body" placeholder="Title" autofocus>
+
+        <button type="submit" name="button">Add</button>
+
+    </form>
+</template>
