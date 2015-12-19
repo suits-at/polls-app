@@ -33,14 +33,16 @@
   <h2>Create a new Poll</h2>
 
   <form id="polls_create_form" v-on:submit.prevent="submit">
-
-    <input type="text" v-model="title" placeholder="Title" autofocus>
-    <input type="text" v-model="description" placeholder="Description" autofocus>
-    <input type="text" v-model="duration" placeholder="Duration" autofocus>
+    <label for="title">What to decide?</label><br />
+    <input type="text" id="title" v-model="title" placeholder="Title" autofocus /><br />
+    <label for="description">Description (optional)</label><br />
+    <textarea id="description" v-model="description" placeholder="Say something about the poll..." autofocus></textarea><br />
+    <label for="duration">End date of poll:</label><br />
+    <input type="date" id="duration" v-model="duration" autofocus /><br />
     
     <p>Options</p>
-    <input type="text" v-model="option1" placeholder="option1" autofocus>
-    <input type="text" v-model="option2" placeholder="option2" autofocus>
+    <input type="text" v-model="option1" placeholder="option1" autofocus><br />
+    <input type="text" v-model="option2" placeholder="option2" autofocus><br />
 
     <button type="submit" name="button">Create</button>
 
