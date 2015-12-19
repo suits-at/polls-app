@@ -8,7 +8,7 @@
     <li v-if="loader">
       Loading...
     </li>
-    <li v-for="poll in polls" v-cloak v-on:click.prevent="doStuff(poll._id)">
+    <li v-for="poll in polls" v-cloak>
       [[poll.title]]
       <ul>
         <li>CreatedAt: [[poll.createdAt]]</li>

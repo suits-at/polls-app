@@ -9,9 +9,9 @@ FlowRouter.route '/',
 FlowRouter.route '/polls',
   name: 'polls_index'
   action: ->
-    BlazeLayout.render 'mainLayout', { content: 'polls_index' }
+    BlazeLayout.render 'mainLayout', {content: 'polls_index'}
 
 FlowRouter.route '/polls/new',
   name: 'polls_create'
   action: ->
-    BlazeLayout.render 'mainLayout', { content: 'polls_create' }
+    BlazeLayout.render 'mainLayout', {content: 'polls_create'}
