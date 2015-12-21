@@ -10,10 +10,6 @@ Template.polls_show.onRendered ->
       pollId: FlowRouter.getParam('pollId')
     created: ->
       @subscriptionPoll = Meteor.subscribe('singlePoll', @pollId)
-      #@subscription = Meteor.subscribe('allPolls')
       Tracker.autorun =>
         @poll = Polls.findOne(@pollId)
-    methods:
-      doStuff: (pollId) ->
-        alert "Polls id = #{pollId}"
   }
