@@ -1,4 +1,5 @@
 Meteor.publish 'allPolls', ->
+<<<<<<< HEAD
   return Polls.find()
 
 Meteor.publish 'allClogs', (projectId) ->
@@ -7,4 +8,4 @@ Meteor.publish 'allClogs', (projectId) ->
   return
 
 Meteor.publish 'singlePoll', ->
-  return Poll.find(_id: pollsId)
+  return Poll.find(_id: pollId)
