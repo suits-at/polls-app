@@ -11,6 +11,7 @@
     <li v-for="poll in polls" v-cloak>
       [[poll.title]]
       <ul>
+        <a href="/polls/[[poll._id]]">Show Poll</a>
         <li>CreatedAt: [[poll.createdAt]]</li>
         <li>Format CA: [[poll.created()]]</li>
         <li>Description: [[poll.description]]</li>

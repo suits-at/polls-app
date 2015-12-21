@@ -19,8 +19,8 @@ Template.polls_index.onRendered ->
       Tracker.autorun =>
         @polls = Polls.find({}, sort: createdAt: -1).fetch()
     methods:
-      doStuff: (pollsId) ->
-        alert "Polls id = #{pollsId}"
+      doStuff: (pollId) ->
+        alert "Polls id = #{pollId}"
   }
 
 Template.polls_create.onRendered ->

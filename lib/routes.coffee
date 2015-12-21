@@ -1,4 +1,6 @@
-FlowRouter.route '/',
+pageSection = FlowRouter.group({})
+
+pageSection.route '/',
   name: 'home'
   action: ->
     BlazeLayout.render 'mainLayout'
@@ -6,12 +8,17 @@ FlowRouter.route '/',
 #
 # Routes for Polls
 #
-FlowRouter.route '/polls',
+pageSection.route '/polls',
   name: 'polls_index'
   action: ->
     BlazeLayout.render 'mainLayout', {content: 'polls_index'}
 
-FlowRouter.route '/polls/new',
+pageSection.route '/polls/new',
   name: 'polls_create'
   action: ->
     BlazeLayout.render 'mainLayout', {content: 'polls_create'}
+
+pageSection.route '/polls/:pollId',
+  name: 'polls_show'
+  action: (params) ->
+  	BlazeLayout.render 'mainLayout', {content: 'polls_show'}
