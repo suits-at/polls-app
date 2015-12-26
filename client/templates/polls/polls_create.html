@@ -42,9 +42,11 @@
     <input type="date" id="duration" v-model="duration" autofocus /><br />
     
     Options<br />
-    <input type="text" v-model="option1" placeholder="option1" autofocus><br />
-    <input type="text" v-model="option2" placeholder="option2" autofocus><br />
-    <button type="button" title="add Option">add Option</button><br />
+    <div id="optionDiv">
+        <input type="text" placeholder="option" autofocus class="option"><br />
+        <input type="text" placeholder="option" autofocus class="option"><br />
+    </div>
+    <button type="button" title="add Option" id="addOption">add Option</button><br />
 
     Which type of chart do you want to use?<br />
     <input type="radio" v-model="charttype" name="chart" id="pie" value="1">

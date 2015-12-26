@@ -42,9 +42,10 @@ Template.polls_create.onRendered ->
             duration: @duration
             charttype: @charttype
           }
+          $opt = $('input[class^="option"]')
 
-          poll.push 'options_poll', optiontitle: @option1
-          poll.push 'options_poll', optiontitle: @option2
+          $.each $opt, (index, v) ->
+            poll.push 'options_poll', optiontitle: $opt[index].value
 
           if poll.validate()
             poll.save()
@@ -57,3 +58,6 @@ Template.polls_create.onRendered ->
         else
           alert 'Title can\'t be empty!'
   }
+
+Template.polls_create.events 'click #addOption': ->
+  $('#optionDiv').append '<input type="text" placeholder="option" autofocus class="option"><br />'

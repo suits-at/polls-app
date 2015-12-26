@@ -23,3 +23,5 @@ TODO: Umfrage teilen (WhatsApp, Email, Facebook)
 
 ### Milestones:
 04.01.2016: Grobversion fertig
+
+//zur Info an Fabian: charttype: 1 = Piechart, 2 = Columnchart
