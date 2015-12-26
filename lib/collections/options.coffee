@@ -16,5 +16,5 @@
       default: -> new Date
    methods:
     created: ->
-    	moment(@createdOptAt).format 'DD/MM/YYYY'
+    	moment(@createdOptAt).format 'DD.MM.YYYY'
 }

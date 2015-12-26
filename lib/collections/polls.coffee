@@ -20,5 +20,7 @@
       default: -> new Date
   methods:
     created: ->
-      moment(@createdAt).format 'DD/MM/YYYY'
+      moment(@createdAt).format 'DD.MM.YYYY'
+    fDuration: ->
+      moment(@duration).format 'DD.MM.YYYY'
 }

@@ -2,7 +2,6 @@ Template.polls_index.onCreated ->
   @autorun =>
     @subscribe('allPolls')
 
-
 Template.polls_index.helpers
   path_polls_create: -> FlowRouter.path 'polls_create'
 
@@ -18,6 +17,8 @@ Template.polls_index.onRendered ->
       @subscription = Meteor.subscribe('allPolls')
       Tracker.autorun =>
         @polls = Polls.find({}, sort: createdAt: -1).fetch()
+    duration: ->
+      @subscription = Meteor.subscribe('allPolls')
     methods:
       doStuff: (pollId) ->
         alert "Polls id = #{pollId}"
@@ -29,6 +30,9 @@ Template.polls_create.onRendered ->
     data:
       title: ''
       description: ''
+      duration: ''
+      charttype: ''
+      options_poll: ''
     methods:
       submit: (e) ->
         if @title
@@ -36,7 +40,9 @@ Template.polls_create.onRendered ->
             title: @title
             description: @description
             duration: @duration
+            charttype: @charttype
           }
+
           poll.push 'options_poll', optiontitle: @option1
           poll.push 'options_poll', optiontitle: @option2
 
@@ -48,7 +54,6 @@ Template.polls_create.onRendered ->
 #              return alert error.reason
 #            else
 #              FlowRouter.go 'polls_index'
-
         else
           alert 'Title can\'t be empty!'
   }
