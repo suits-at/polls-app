@@ -1,7 +1,20 @@
 <template name="polls_show">
+
+	<header>
+  <div class="header-bar">
+		<a href="{{path_polls_index}}">
+       <i class="fa fa-chevron-left fa-2x fa-pull-left "></i>
+     </a>
 	<h3>Share your Poll!</h3>
+	</div>
+	</header>
+
+
 	<div vue="polls_show">
 		<h4>Titel: [[poll.title]]</h4>
-		<p>Link: <a href="/polls/[[poll._id]]">polls/[[poll._id]]</a></p>
+		<p>Link: <span class="link">
+			<a href="/polls/[[poll._id]]">polls/[[poll._id]]</a>
+			</span>
+		</p>
 	</div>
 </template>

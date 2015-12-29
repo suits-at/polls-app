@@ -1,10 +1,24 @@
-<template name="mainLayout">
-    <header>
-        <h1>Polls made easy!</h1>
-        {{> loginButtons}}
-    </header>
+<template name="mainLayout" >
+    <div class="content" >
+    <h1>pollsApp</h1>
+    <div class="intro">
+      <p>Anmelden und schnell und einfach Umfragen erstellen.</p>
+    </div>
+
     <main>
-        <a href="{{ path_polls_index }}">show all Polls</a>
-        {{>Template.dynamic template=content data=params}}
+      <span class="link">
+      <a href="{{ path_polls_index }}">show all Polls</a>
+      </span>
+      <br/>
+      <button class="loginbtn">
+      {{ > loginButtons}}
+    </button>
     </main>
+  </div>
+</template>
+
+<template name="pollsLayout">
+<div class="content">
+  {{>Template.dynamic template=content data=params}}
+</div>
 </template>

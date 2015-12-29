@@ -2,6 +2,9 @@ Template.polls_show.onCreated ->
   @autorun =>
     @subscribe('allPolls')
 
+Template.polls_show.helpers
+  path_polls_index: -> FlowRouter.path 'polls_index'
+
 Template.polls_show.onRendered ->
   new Vue {
     el: '[vue=polls_show]'
