@@ -14,6 +14,9 @@
       type: 'date'
       immutable: true
       default: -> new Date
+    persons:
+      type: 'array'
+      default: -> []
    methods:
     created: ->
     	moment(@createdOptAt).format 'DD.MM.YYYY'

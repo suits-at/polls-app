@@ -1,0 +1,35 @@
+<template name="userview_polls">
+  <header>
+  <div class="header-bar">
+  <h3>Vote the Polls</h3>
+</div>
+</header>
+
+  <form id="polls_vote_form" v-on:submit.prevent="submit">
+
+
+    <div class="form-group">
+      <label for="pollvoter">Name</label>
+      <input type="text" id="pollvoter" v-model="pollvoter" placeholder="Write your name..." autofocus /><br />
+    </div>
+
+    <h2>[[poll.title]]</h2>
+    <label>Options</label>
+
+      <div id="options" class="form-group">
+        {{#each poll.options_poll}}
+            <input type="radio" class="option" value="{{optiontitle}}" id="{{optiontitle}}">
+            <label for="{{optiontitle}}">{{optiontitle}}</label>
+        {{/each}}
+
+
+      </div>
+
+
+
+
+
+    <button type="submit" name="button">Vote</button>
+  </form>
+
+</template>
