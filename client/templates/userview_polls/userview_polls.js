@@ -11,42 +11,34 @@
   Template.userview_polls.helpers({
     path_polls_index: function() {
       return FlowRouter.path('polls_index');
+    },
+    poll: function() {
+      return Polls.findOne(FlowRouter.getParam('pollId'));
     }
   });
 
   Template.userview_polls.onRendered(function() {
+    $('input[class^="option"]:first').attr('checked', true);
     return new Vue({
       el: '#polls_vote_form',
       data: {
-        poll: {},
-        pollId: FlowRouter.getParam('pollId'),
         pollvoter: ''
-      },
-      created: function() {
-        this.subscriptionPoll = Meteor.subscribe('singlePoll', this.pollId);
-        return Tracker.autorun((function(_this) {
-          return function() {
-            return _this.poll = Polls.findOne(_this.pollId);
-          };
-        })(this));
       },
       methods: {
         submit: function(e) {
-          var $opt, selectedOpt;
+          var $opt, counter, poll, pollvoter, selectedOpt;
           e.preventDefault();
           if (this.pollvoter) {
-            ({
-              pollvoter: this.pollvoter
-            });
+            poll = Polls.findOne(FlowRouter.getParam('pollId'));
+            pollvoter = this.pollvoter;
             $opt = $('input[class^="option"]');
             selectedOpt = $opt.index($opt.filter(':checked'));
-            console.log($opt);
-            alert(selectedOpt);
+            counter = poll.options_poll[selectedOpt].optioncount + 1;
             poll.options_poll[selectedOpt].push('persons', pollvoter);
-            poll.options_poll[selectedOpt].optioncount++;
+            poll.options_poll[selectedOpt].set('optioncount', counter);
             if (poll.validate()) {
               poll.save();
-              return FlowRouter.go('polls_index');
+              return FlowRouter.go('userview_diagram');
             }
           } else {
             return alert('Your name can\'t be empty!');

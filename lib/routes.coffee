@@ -32,3 +32,8 @@ pageSection.route '/polls/show/:pollId',
   name: 'userview_polls'
   action: (params) ->
   	BlazeLayout.render 'pollsLayout', {content: 'userview_polls'}
+
+pageSection.route '/polls/diagram/:pollId',
+  name: 'userview_diagram'
+  action: (params) ->
+  	BlazeLayout.render 'pollsLayout', {content: 'userview_diagram'}
