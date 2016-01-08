@@ -62,5 +62,10 @@ Template.polls_create.onRendered ->
 Template.polls_create.events 'click #addOption': ->
   $('#optionDiv').append '<input type="text" placeholder="option" autofocus class="option"><br />'
 
+Template.polls_index.events 'click .delete': (e)  ->
+  polls = e.currentTarget.id
+  Polls.remove _id: polls
+  return
+
 Template.polls_create.helpers
   path_polls_index: -> FlowRouter.path 'polls_index'

@@ -1,22 +1,24 @@
 <template name="userview_polls">
   <header>
   <div class="header-bar">
-  <h3>Vote the Polls</h3>
+  <h3>Vote the Poll</h3>
 </div>
 </header>
 
   <form id="polls_vote_form" v-on:submit.prevent="submit">
 
+<h2>{{poll.title}}</h2>
 
     <div class="form-group">
       <label for="pollvoter">Name</label>
       <input type="text" id="pollvoter" v-model="pollvoter" placeholder="Write your name..." autofocus /><br />
     </div>
 
-    <h2>{{poll.title}}</h2>
+
     <label>Options</label>
 
-
+    <div class="dauer">
+    <div class="radiolist">
         <fieldset>
           {{#each poll.options_poll}}
 
@@ -25,12 +27,8 @@
           {{/each}}
 
         </fieldset>
-
-
-
-
-
-
+</div>
+</div>
 
     <button type="submit" name="button">Vote</button>
   </form>

@@ -11,7 +11,7 @@
     <li v-if="loader">
       Loading...
     </li>
-    <li v-for="poll in polls" v-cloak>
+    <li v-for="poll in polls" v-cloak class="{{#if checked}} checked {{/if}}">
 
       <div class="circle">
     <i class="fa fa-list-ul fa-lg"></i>
@@ -19,23 +19,16 @@
 
       <div class="mypoll">
 
-      [[poll.title]] <br/>
-        <span class="link">
-            <a href="/polls/[[poll._id]]">Share your Poll</a>
-        </span>
+    <span class="titlePoll">
+      <a href="/polls/[[poll._id]]" class="title">  [[poll.title]] </a>
+      <a href="#" id="[[poll._id]]" class="delete">
+         <i class="fa fa-trash-o fa-2x"></i>
+       </a>
+       <a href="/polls/share/[[poll._id]]">
+          <i class="fa fa-share-alt fa-2x"></i>
+       </a>
+    </span>
 
-      <ul class="pollinfo">
-        <li>Created: [[poll.created()]]</li>
-        <li>Description: [[poll.description]]</li>
-        <li>End of poll: [[poll.fDuration()]]</li>
-        <li>Charttype: [[poll.charttype]]</li>
-        <li>Options:</li>
-        <ul>
-          <li v-for="option in poll.options_poll">
-            [[option.optiontitle]]
-          </li>
-        </ul>
-      </ul>
     </div>
     </li>
   </ul>
