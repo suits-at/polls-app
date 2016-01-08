@@ -28,6 +28,11 @@ pageSection.route '/polls/:pollId',
   action: (params) ->
   	BlazeLayout.render 'pollsLayout', {content: 'polls_show'}
 
+pageSection.route '/polls/share/:pollId',
+  name: 'polls_share'
+  action: (params) ->
+  	BlazeLayout.render 'pollsLayout', {content: 'polls_share'}
+
 pageSection.route '/polls/show/:pollId',
   name: 'userview_polls'
   action: (params) ->

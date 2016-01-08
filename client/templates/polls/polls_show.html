@@ -27,16 +27,39 @@
 				</li>
 			</ul>
 		</ul>
+		</div>
+			</div>
+				</div>
 
-<h4>Share your poll </h4>
+</template>
+
+<template name="polls_share">
+
+<div vue="polls_share">
+
+	<header>
+  <div class="header-bar">
+		<a href="{{path_polls_index}}">
+       <i class="fa fa-chevron-left fa-2x fa-pull-left "></i>
+     </a>
+	<h3>Share your Poll</h3>
+	</div>
+	</header>
+
+<h4>[[poll.title]]</h4>
+
+<div class="mypollslist">
+
+	  <div class="mypoll">
+
 		<p>Copy this link and share it however you'd like!</p>
 		<p> <span class="link">
 			<a href="/polls/show/[[poll._id]]">polls/show/[[poll._id]]</a>
 			</span>
 		</p>
+</div>
+</div>
 
-	</div>
+</div>
 
-	</div>
-	</div>
 </template>
