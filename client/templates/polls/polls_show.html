@@ -1,20 +1,42 @@
 <template name="polls_show">
 
+<div vue="polls_show">
+
 	<header>
   <div class="header-bar">
 		<a href="{{path_polls_index}}">
        <i class="fa fa-chevron-left fa-2x fa-pull-left "></i>
      </a>
-	<h3>Share your Poll!</h3>
+	<h3> [[poll.title]]</h3>
 	</div>
 	</header>
 
+<div class="mypollslist">
 
-	<div vue="polls_show">
-		<h4>Titel: [[poll.title]]</h4>
-		<p>Link: <span class="link">
+	  <div class="mypoll">
+
+		<ul class="pollinfo">
+			<li>Created: [[poll.created()]]</li>
+			<li>Description: [[poll.description]]</li>
+			<li>End of poll: [[poll.fDuration()]]</li>
+			<li>Charttype: [[poll.charttype]]</li>
+			<li>Options:</li>
+			<ul>
+				<li v-for="option in poll.options_poll">
+					[[option.optiontitle]]
+				</li>
+			</ul>
+		</ul>
+
+<h4>Share your poll </h4>
+		<p>Copy this link and share it however you'd like!</p>
+		<p> <span class="link">
 			<a href="/polls/show/[[poll._id]]">polls/show/[[poll._id]]</a>
 			</span>
 		</p>
+
+	</div>
+
+	</div>
 	</div>
 </template>
