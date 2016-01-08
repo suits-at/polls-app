@@ -1,0 +1,38 @@
+<template name="userview_diagram">
+  <header>
+  <div class="header-bar">
+  <h3>{{poll.title}}</h3>
+</div>
+</header>
+
+<div id="polls_diagram">
+
+
+  <div id="diagram_div">
+    {{#if poll.charttype}}
+      {{> highchartsHelper chartId="diagram" chartWidth="100%" chartHeight="auto" chartObject=generateColumnChart}}
+    {{else}}
+      {{> highchartsHelper chartId="diagram" chartWidth="100%" chartHeight="auto" chartObject=generatePieChart}}
+    {{/if}}
+  </div>
+
+  <div id="options_details">
+    {{#each poll.options_poll}}
+      <div class="option">
+        <h3>{{optiontitle}}    {{optioncount}}</h3>
+      </div>
+      <div class="option_voters">
+        <ul>
+          {{#each persons}}
+            <li>{{this}}</li>
+          {{/each}}
+        </ul>
+        <label for="{{optiontitle}}">{{optiontitle}}</label><br/>
+      </div>
+    {{/each}}
+
+  </div>
+
+</div>
+
+</template>

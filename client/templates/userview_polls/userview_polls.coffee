@@ -1,9 +1,6 @@
 Template.userview_polls.onCreated ->
-
   @autorun =>
     @subscribe('allPolls')
-
-
 
 Template.userview_polls.helpers
   path_polls_index: -> FlowRouter.path 'polls_index'
@@ -32,7 +29,7 @@ Template.userview_polls.onRendered ->
 
           if poll.validate()
             poll.save()
-            FlowRouter.go('userview_diagram')
+            FlowRouter.go('/polls/diagram/'+FlowRouter.getParam('pollId'))
 
         else
           alert 'Your name can\'t be empty!'
