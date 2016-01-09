@@ -8,7 +8,8 @@ Template.userview_polls.helpers
     return Polls.findOne(FlowRouter.getParam('pollId'))
 
 Template.userview_polls.onRendered ->
-  $('input[class^="option"]:first').attr('checked', true)
+  $a = $('input[class^="option"]:first').attr('checked', true)
+  console.log $a
   new Vue {
     el: '#polls_vote_form'
     data:
@@ -30,6 +31,7 @@ Template.userview_polls.onRendered ->
           if poll.validate()
             poll.save()
             FlowRouter.go('/polls/diagram/'+FlowRouter.getParam('pollId'))
+#            FlowRouter.go('userview_diagram')
 
         else
           alert 'Your name can\'t be empty!'

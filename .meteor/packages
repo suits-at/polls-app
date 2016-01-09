@@ -32,3 +32,5 @@ accounts-ui
 accounts-password
 fortawesome:fontawesome
 maazalik:highcharts
+mrt:jquery-ui
+gwendall:auth-client-callbacks

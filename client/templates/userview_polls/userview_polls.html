@@ -1,38 +1,35 @@
 <template name="userview_polls">
-  <header>
-  <div class="header-bar">
-  <h3>Vote the Poll</h3>
-</div>
-</header>
+    <header>
+        <div class="header-bar">
+            <h3>Vote the Poll</h3>
+            {{ > loginButtons}}
+        </div>
+    </header>
 
-  <form id="polls_vote_form" v-on:submit.prevent="submit">
+    <form id="polls_vote_form" v-on:submit.prevent="submit">
 
-<h2>{{poll.title}}</h2>
+        <h2>{{poll.title}}</h2>
 
-    <div class="form-group">
-      <label for="pollvoter">Name</label>
-      <input type="text" id="pollvoter" v-model="pollvoter" placeholder="Write your name..." autofocus /><br />
-    </div>
+        <div class="form-group">
+            <label for="pollvoter">Name</label>
+            <input type="text" id="pollvoter" v-model="pollvoter" placeholder="Write your name..." autofocus/><br/>
+        </div>
 
 
-    <label>Options</label>
+        <label>Options</label>
 
-    <div class="dauer">
-    <div class="radiolist">
-        <fieldset>
-          {{#each poll.options_poll}}
+        <div class="dauer">
+            <div class="radiolist">
+                <fieldset>
+                    {{#each poll.options_poll}}
+                        <input type="radio" name="options" class="option" value="{{optiontitle}}" id="{{optiontitle}}">
+                        <label for="{{optiontitle}}">{{optiontitle}}</label><br/>
+                    {{/each}}
 
-            <input type="radio" name="options" class="option" value="{{optiontitle}}" id="{{optiontitle}}">
-            <label for="{{optiontitle}}">{{optiontitle}}</label><br/>
-          {{/each}}
+                </fieldset>
+            </div>
+        </div>
 
-        </fieldset>
-</div>
-</div>
-
-    <button type="submit" name="button">Vote</button>
-  </form>
-  <script type="text/javascript">
-    $('input[class^="option"]:first').attr('checked', true)
-  </script>
+        <button type="submit" name="button">Vote</button>
+    </form>
 </template>

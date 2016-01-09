@@ -1,38 +1,42 @@
 <template name="userview_diagram">
-  <header>
-  <div class="header-bar">
-  <h3>{{poll.title}}</h3>
-</div>
-</header>
+    <header>
+        <div class="header-bar">
+            <a href="{{path_polls_index}}">
+                <i class="fa fa-chevron-left fa-2x fa-pull-left "></i>
+            </a>
+            <h3> {{poll.title}}</h3>
+            {{ > loginButtons}}
+        </div>
+    </header>
 
-<div id="polls_diagram">
+    <div id="polls_diagram">
 
 
-  <div id="diagram_div">
-    {{#if poll.charttype}}
-      {{> highchartsHelper chartId="diagram" chartWidth="100%" chartHeight="auto" chartObject=generateColumnChart}}
-    {{else}}
-      {{> highchartsHelper chartId="diagram" chartWidth="100%" chartHeight="auto" chartObject=generatePieChart}}
-    {{/if}}
-  </div>
+        <div id="diagram_div">
+            {{#if poll.charttype}}
+                {{> highchartsHelper chartId="diagram" chartWidth="100%" chartHeight="auto" chartObject=generateColumnChart}}
+            {{else}}
+                {{> highchartsHelper chartId="diagram" chartWidth="100%" chartHeight="auto" chartObject=generatePieChart}}
+            {{/if}}
+        </div>
 
-  <div id="options_details">
-    {{#each poll.options_poll}}
-      <div class="option">
-        <h3>{{optiontitle}}    {{optioncount}}</h3>
-      </div>
-      <div class="option_voters">
-        <ul>
-          {{#each persons}}
-            <li>{{this}}</li>
-          {{/each}}
-        </ul>
-        <label for="{{optiontitle}}">{{optiontitle}}</label><br/>
-      </div>
-    {{/each}}
+        <div id="options_details">
+            {{#each poll.options_poll}}
+                <div class="option">
+                    <h3>{{optiontitle}}    {{optioncount}}</h3>
+                </div>
+                <div class="option_voters">
+                    <ul>
+                        {{#each persons}}
+                            <li>{{this}}</li>
+                        {{/each}}
+                    </ul>
+                    <label for="{{optiontitle}}">{{optiontitle}}</label><br/>
+                </div>
+            {{/each}}
 
-  </div>
+        </div>
 
-</div>
+    </div>
 
 </template>

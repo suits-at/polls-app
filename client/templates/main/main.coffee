@@ -1,5 +1,4 @@
-Template.mainLayout.onRendered ->
-  Template.mainLayout.onCreated ->
+Template.mainLayout.onCreated ->
   Vue.config.delimiters = [
     '[['
     ']]'

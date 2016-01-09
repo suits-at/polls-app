@@ -1,4 +1,8 @@
 Template.polls_index.onCreated ->
+  Vue.config.delimiters = [
+    '[['
+    ']]'
+  ]
   @autorun =>
     @subscribe('allPolls')
 
@@ -14,11 +18,11 @@ Template.polls_index.onRendered ->
     ready: ->
       @loader = false
     created: ->
-      @subscription = Meteor.subscribe('allPolls')
+#      @subscription = Meteor.subscribe('allPolls')
       Tracker.autorun =>
         @polls = Polls.find({}, sort: createdAt: -1).fetch()
-    duration: ->
-      @subscription = Meteor.subscribe('allPolls')
+#    duration: ->
+#      @subscription = Meteor.subscribe('allPolls')
     methods:
       doStuff: (pollId) ->
         alert "Polls id = #{pollId}"

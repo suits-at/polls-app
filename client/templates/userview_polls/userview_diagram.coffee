@@ -1,6 +1,6 @@
-Template.userview_diagram.onCreated ->
-  @autorun =>
-    @subscribe('allPolls')
+#Template.userview_diagram.onCreated ->
+#  @autorun =>
+#    @subscribe('allPolls')
 
 Template.userview_diagram.helpers
   path_polls_index: -> FlowRouter.path 'polls_index'
@@ -95,7 +95,7 @@ Template.userview_diagram.generatePieChart = ->
         cursor: 'pointer'
         dataLabels:
           enabled: true,
-          format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+          format: '<b>{point.name}</b>: {point.percentage:.2f} %'
           style:
             color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
 
@@ -105,17 +105,19 @@ Template.userview_diagram.generatePieChart = ->
         type: 'pie'
         name: 'genre'
         data:[
-          ['Adventure', 45.0]
-          ['Action', 26.8]
-          ['Ecchi', 12.8]
-          ['Comedy', 8.5]
-          ['Yuri', 6.2]
+          ['Adventure', 2]
+          ['Action', 5]
+          ['Ecchi', 8]
+          ['Comedy', 8]
+          ['Yuri', 6]
         ]
     }]
   }
 
 
 Template.userview_diagram.onRendered ->
+  @autorun =>
+    @subscribe('allPolls')
   new Vue {
     el: '#polls_diagram'
     data:

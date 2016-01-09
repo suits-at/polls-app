@@ -18,10 +18,11 @@ Daniel: Namen, Logo, Registrierung/Login, Github, Präsentation
 
 Sebastian: Milestones, Issues, + Zuweisung an Personen, Titel/Description/Antwortmöglichkeiten/Zeit/Diagrammauswahl
 
-TODO: Umfrage teilen (WhatsApp, Email, Facebook)
-
+TODO:
+offene Punkte: 
+Datepicker minimum auf "aktuelles Datum" festlegen
+polls_index in polls_create -> eigenes file
+seite 7 von Mockup bei Share umsetzen (Umfrage teilen (WhatsApp, Email, Facebook), texte hinzufügen, 
 
 ### Milestones:
 04.01.2016: Grobversion fertig
-
-//zur Info an Fabian: charttype: 1 = Piechart, 2 = Columnchart

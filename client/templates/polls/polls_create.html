@@ -1,92 +1,95 @@
-
 <template name="polls_index">
-  <header>
-  <div class="header-bar">
-  <h3>List of your Polls</h3>
-</div>
-</header>
+    <header>
+        <div class="header-bar">
+            <h3>List of your Polls</h3>
+            {{ > loginButtons}}
+        </div>
+    </header>
 
 
-  <ul id="polls_list" class="mypollslist">
-    <li v-if="loader">
-      Loading...
-    </li>
-    <li v-for="poll in polls" v-cloak class="{{#if checked}} checked {{/if}}">
+    <ul id="polls_list" class="mypollslist">
+        <li v-if="loader">
+            Loading...
+        </li>
+        <li v-for="poll in polls" v-cloak class="{{#if checked}} checked {{/if}}">
 
-      <div class="circle">
-    <i class="fa fa-list-ul fa-lg"></i>
-      </div>
+            <div class="circle">
+                <i class="fa fa-list-ul fa-lg"></i>
+            </div>
 
-      <div class="mypoll">
+            <div class="mypoll">
 
     <span class="titlePoll">
-      <a href="/polls/[[poll._id]]" class="title">  [[poll.title]] </a>
+      <a href="/polls/diagram/[[poll._id]]" class="title"> [[poll.title]] </a>
       <a href="#" id="[[poll._id]]" class="delete">
-         <i class="fa fa-trash-o fa-2x"></i>
-       </a>
+          <i class="fa fa-trash-o fa-2x"></i>
+      </a>
        <a href="/polls/share/[[poll._id]]">
-          <i class="fa fa-share-alt fa-2x"></i>
+           <i class="fa fa-share-alt fa-2x"></i>
        </a>
     </span>
 
-    </div>
-    </li>
-  </ul>
+            </div>
+        </li>
+    </ul>
 
 
-  <a href="{{path_polls_create}}">
-<div class="addpoll">
-  <i class="fa fa-plus-circle fa-3x"></i>
-</div>
-</a>
+    <a href="{{path_polls_create}}">
+        <div class="addpoll">
+            <i class="fa fa-plus-circle fa-3x"></i>
+        </div>
+    </a>
 
 </template>
 
 <template name="polls_create">
-  <header>
-  <div class="header-bar">
-    <a href="{{path_polls_index}}">
-       <i class="fa fa-chevron-left fa-2x fa-pull-left "></i>
-     </a>
-  <h3>Create a new Poll</h3>
-</div>
-</header>
+    <header>
+        <div class="header-bar">
+            <a href="{{path_polls_index}}">
+                <i class="fa fa-chevron-left fa-2x fa-pull-left "></i>
+            </a>
+            <h3>Create a new Poll</h3>
+            {{ > loginButtons}}
+        </div>
+    </header>
 
-  <form id="polls_create_form" v-on:submit.prevent="submit">
+    <form id="polls_create_form" v-on:submit.prevent="submit">
 
-    <label for="title">What to decide?</label>
-    <div class="form-group">
-      <input type="text" id="title" v-model="title" placeholder="Title" autofocus /><br />
-    </div>
-    <label for="description">Description (optional)</label><br />
-    <div class="form-group">
-      <textarea id="description" v-model="description" placeholder="Say something about the poll..." autofocus></textarea><br />
-    </div>
-    <label for="duration">End date of poll:</label><br />
-    <div class="form-group">
-      <input type="date" id="duration" v-model="duration" autofocus /><br />
-    </div>
-    <label> Options</label>
+        <label for="title">What to decide?</label>
         <div class="form-group">
-    <div id="optionDiv">
-        <input type="text" placeholder="option" autofocus class="option"><br />
+            <input type="text" id="title" v-model="title" placeholder="Title" autofocus/><br/>
+        </div>
+        <label for="description">Description (optional)</label><br/>
+        <div class="form-group">
+            <textarea id="description" v-model="description" placeholder="Say something about the poll..."
+                      autofocus></textarea><br/>
+        </div>
+        <label for="duration">End date of poll:</label><br/>
+        <div class="form-group">
+            <input type="date" id="duration" v-model="duration" autofocus/><br/>
+        </div>
+        <label> Options</label>
+        <div class="form-group">
+            <div id="optionDiv">
+                <input type="text" placeholder="option" autofocus class="option"><br/>
 
-        <input type="text" placeholder="option" autofocus class="option"><br />
-      </div>
-    <button type="button" title="add Option" id="addOption">add Option</button><br />
-    </div>
+                <input type="text" placeholder="option" autofocus class="option"><br/>
+            </div>
+            <button type="button" title="add Option" id="addOption">add Option</button>
+            <br/>
+        </div>
 
 
-    <label>Which type of chart do you want to use?</label>
-    <div class="dauer">
-    <div class="radiolist">
-    <input type="radio" v-model="charttype" name="chart" id="pie" value="0">
-      <label for="pie">Pie chart</label><br />
-    <input type="radio" v-model="charttype" name="chart" id="column" value="1">
-      <label for="column">Column chart</label><br />
-    </div>
-  </div>
-    <button type="submit" name="button">Create poll</button>
-  </form>
+        <label>Which type of chart do you want to use?</label>
+        <div class="dauer">
+            <div class="radiolist">
+                <input type="radio" v-model="charttype" name="chart" id="pie" value="0" checked>
+                <label for="pie">Pie chart</label><br/>
+                <input type="radio" v-model="charttype" name="chart" id="column" value="1">
+                <label for="column">Column chart</label><br/>
+            </div>
+        </div>
+        <button type="submit" name="button">Create poll</button>
+    </form>
 
 </template>
