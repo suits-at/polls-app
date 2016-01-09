@@ -20,15 +20,12 @@ Template.polls_index.onRendered ->
     created: ->
 #      @subscription = Meteor.subscribe('allPolls')
       Tracker.autorun =>
-        @polls = Polls.find({}, sort: createdAt: -1).fetch()
-#    duration: ->
-#      @subscription = Meteor.subscribe('allPolls')
-    methods:
-      doStuff: (pollId) ->
-        alert "Polls id = #{pollId}"
+        @polls = Polls.find({ "ownerId" : Meteor.userId() }, sort: createdAt: -1).fetch()
   }
 
+
 Template.polls_create.onRendered ->
+#  ownerId = Meteor.userId();
   vm = new Vue {
     el: '#polls_create_form'
     data:
@@ -37,6 +34,7 @@ Template.polls_create.onRendered ->
       duration: ''
       charttype: ''
       options_poll: ''
+      currentUser: ''
     methods:
       submit: (e) ->
         if @title
@@ -45,6 +43,7 @@ Template.polls_create.onRendered ->
             description: @description
             duration: @duration
             charttype: @charttype
+            ownerId: Meteor.userId()
           }
           $opt = $('input[class^="option"]')
 

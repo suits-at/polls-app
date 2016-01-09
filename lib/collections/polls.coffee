@@ -5,6 +5,7 @@
   collection: Polls
   fields:
     title: 'string'
+    ownerId: 'string'
     description: 'string'
     charttype: 'number'
     options_poll:
@@ -18,6 +19,7 @@
       type: 'date'
       immutable: true
       default: -> new Date
+
   methods:
     created: ->
       moment(@createdAt).format 'DD.MM.YYYY'
