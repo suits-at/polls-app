@@ -1,12 +1,20 @@
-#Template.userview_diagram.onCreated ->
-#  @autorun =>
-#    @subscribe('allPolls')
+Template.userview_diagram.onCreated ->
+  @autorun =>
+    @subscribe('allPolls')
 
 Template.userview_diagram.helpers
   path_polls_index: -> FlowRouter.path 'polls_index'
   poll: ->
-    console.log FlowRouter.getParam('pollId')
+    #console.log FlowRouter.getParam('pollId')
     return Polls.findOne(FlowRouter.getParam('pollId'))
+
+
+Template.userview_diagram.onRendered ->
+  #alert "asdf"
+  $('.ui.accordion')
+    .accordion('refresh')
+    return
+
 
 Template.userview_diagram.generateColumnChart = ->
   return {
@@ -112,19 +120,4 @@ Template.userview_diagram.generatePieChart = ->
           ['Yuri', 6]
         ]
     }]
-  }
-
-
-Template.userview_diagram.onRendered ->
-  @autorun =>
-    @subscribe('allPolls')
-  new Vue {
-    el: '#polls_diagram'
-    data:
-      optiontitle: ''
-      optioncount: ''
-      persons: []
-    methods:
-      submit: (e) ->
-        e.preventDefault()
   }
