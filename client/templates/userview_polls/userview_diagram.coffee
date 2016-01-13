@@ -76,48 +76,41 @@ Template.userview_diagram.generateColumnChart = ->
 
   }
 
-Template.userview_diagram.generatePieChart = ->
-  return {
-    chart: {
+Template.userview_diagram.generatePieChart = (data) ->
+  $('#container-pie').highcharts
+    chart:
       plotBackgroundColor: null
       plotBorderWidth: null
       plotShadow: false
-    }
-    title:
-      text: this.username + "'s top genres"
-
-    tooltip:
-      pointFormat: '<b>{point.percentage:.1f}%</b>'
-
-    plotOptions:
-      pie:
-        allowPointSelect: true
-        cursor: 'pointer'
-        dataLabels:
-          enabled: true,
-          format: '<b>{point.name}</b>: {point.percentage:.2f} %'
-          style:
-            color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
-
-          connectorColor: 'silver'
-
-    series:[{
-        type: 'pie'
-        name: 'genre'
-        data:[
-          ['Adventure', 2]
-          ['Action', 5]
-          ['Ecchi', 8]
-          ['Comedy', 8]
-          ['Yuri', 6]
-        ]
-    }]
-  }
+    title: text: ''
+    credits: enabled: false
+    tooltip: pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+    plotOptions: pie:
+      allowPointSelect: true
+      cursor: 'pointer'
+      dataLabels: enabled: false
+      showInLegend: true
+    series: [ {
+      type: 'pie'
+      name: 'Anteil'
+      data: data
+    } ]
+  return
 
 
 Template.userview_diagram.onRendered ->
   @autorun =>
     @subscribe('allPolls')
+
+  data = Polls.find()
+  data = data.get([
+    'options_poll.optiontitle'
+    'options_poll.optioncount'
+  ])
+
+  Template.Play.generatePieChart();
+
+
   new Vue {
     el: '#polls_diagram'
     data:
@@ -127,4 +120,18 @@ Template.userview_diagram.onRendered ->
     methods:
       submit: (e) ->
         e.preventDefault()
+
   }
+
+Template.userview_diagram_pie.onRendered ->
+  @autorun =>
+    @subscribe('allPolls')
+
+  data = Polls.find()
+  data = data.get([
+    'options_poll.optiontitle'
+    'options_poll.optioncount'
+  ])
+
+  Template.userview_diagram.generatePieChart(data)
+  return
