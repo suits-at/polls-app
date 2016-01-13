@@ -2,14 +2,23 @@
     <header>
         <div class="header-bar">
             <h3>Vote the Poll</h3>
+              <span class="profile">
             {{ > loginButtons}}
+          </span>
         </div>
     </header>
+
+    <div class="infotext">
+      <p>
+        You have been invited to vote this poll.
+        Please answer this question.
+        Later changes are not possible.
+      </p>
+    </div>
 
     <form id="polls_vote_form" v-on:submit.prevent="submit">
 
         <h2>{{poll.title}}</h2>
-
         <div class="form-group">
             <label for="pollvoter">Name</label>
             <input type="text" id="pollvoter" v-model="pollvoter" placeholder="Write your name..." autofocus/><br/>
@@ -30,7 +39,7 @@
                 </fieldset>
             </div>
         </div>
-        
-        <button type="submit" name="button">Vote</button>
+
+        <button type="submit" class="btn btn-primary" name="button">Vote</button>
     </form>
 </template>

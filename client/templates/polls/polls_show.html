@@ -8,17 +8,26 @@
                     <i class="fa fa-chevron-left fa-2x fa-pull-left "></i>
                 </a>
                 <h3>Share your Poll</h3>
+                  <span class="profile">
                 {{ > loginButtons}}
+              </span>
             </div>
         </header>
+
+        <div class="content">
 
         <h4>[[poll.title]]</h4>
 
         <div class="mypollslist">
 
-            <div class="mypoll">
-
                 <p>Copy <span class="link"><a href="/polls/show/[[poll._id]]">this Link</a></span> and share it however you'd like!</p>
+
+                    <div class="infotext">
+                      <p>
+                        Now you just have to wait till everyone voted your poll.
+                        You can follow the results on the detail page of your poll.
+                      </p>
+                    </div>
             </div>
         </div>
 

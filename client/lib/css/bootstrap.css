@@ -3020,7 +3020,7 @@ select[multiple].input-lg {
 .btn:hover,
 .btn:focus,
 .btn.focus {
-  color: #ffffff;
+  color: #333333;
   text-decoration: none;
 }
 .btn:active,
@@ -3044,26 +3044,26 @@ fieldset[disabled] a.btn {
   pointer-events: none;
 }
 .btn-default {
-  color: #ffffff;
-  background-color: #8f262a;
+  color: #333333;
+  background-color: #ffffff;
   border-color: #cccccc;
 }
 .btn-default:focus,
 .btn-default.focus {
-  color: #ffffff;
-  background-color: #671b1e;
+  color: #333333;
+  background-color: #e6e6e6;
   border-color: #8c8c8c;
 }
 .btn-default:hover {
-  color: #ffffff;
-  background-color: #671b1e;
+  color: #333333;
+  background-color: #e6e6e6;
   border-color: #adadad;
 }
 .btn-default:active,
 .btn-default.active,
 .open > .dropdown-toggle.btn-default {
-  color: #ffffff;
-  background-color: #671b1e;
+  color: #333333;
+  background-color: #e6e6e6;
   border-color: #adadad;
 }
 .btn-default:active:hover,
@@ -3075,8 +3075,8 @@ fieldset[disabled] a.btn {
 .btn-default:active.focus,
 .btn-default.active.focus,
 .open > .dropdown-toggle.btn-default.focus {
-  color: #ffffff;
-  background-color: #4b1416;
+  color: #333333;
+  background-color: #d4d4d4;
   border-color: #8c8c8c;
 }
 .btn-default:active,
@@ -3102,12 +3102,12 @@ fieldset[disabled] .btn-default:active,
 .btn-default.disabled.active,
 .btn-default[disabled].active,
 fieldset[disabled] .btn-default.active {
-  background-color: #8f262a;
+  background-color: #ffffff;
   border-color: #cccccc;
 }
 .btn-default .badge {
-  color: #8f262a;
-  background-color: #ffffff;
+  color: #ffffff;
+  background-color: #333333;
 }
 .btn-primary {
   color: #ffffff;
@@ -6790,10 +6790,6 @@ h1 {
   text-align: center;
   margin-top: 80px;
 }
-.mypoll {
-  text-align: left;
-  padding-left: 20px;
-}
 .pollinfo {
   line-height: 5px;
 }
@@ -6812,10 +6808,6 @@ main a {
 .form-group input,
 .form-group textarea {
   display: inline-block;
-  width: 70%;
-  max-width: 400px;
-}
-.btn-default {
   width: 70%;
   max-width: 400px;
 }
@@ -6852,13 +6844,24 @@ a:visited {
 .header-bar h3 {
   display: inline-block;
 }
+.profile {
+  position: absolute;
+  right: 0px;
+  margin-right: 20px;
+  margin-top: 20px;
+}
+.login-link-text:hover {
+  color: #fff;
+}
 .fa-chevron-left {
   margin-top: 20px;
   margin-left: 20px;
+  left: 0px;
+  position: absolute;
 }
-.fa-chevron-right {
-  margin-top: 20px;
+.fa-user {
   margin-right: 20px;
+  margin-top: 20px;
 }
 .mypollslist {
   list-style: none;
@@ -6877,10 +6880,29 @@ a:visited {
 .mypollslist li {
   overflow: auto;
   padding: 10px;
+  text-align: left;
 }
 .link a {
   color: #8f262a;
   text-decoration: none;
+}
+.titlePoll a {
+  color: #000;
+  text-decoration: none;
+}
+.titlePoll {
+  float: left;
+  margin-top: 10px;
+  margin-left: 20px;
+}
+.delete {
+  padding-left: 20px;
+}
+.options a {
+  color: #000;
+  line-height: 7px;
+  text-decoration: none;
+  float: right;
 }
 .mypollslist li p {
   line-height: 45px;
@@ -6895,12 +6917,7 @@ a:visited {
   height: 40px;
   padding: 9px;
   color: #fff;
-  margin-left: 20%;
-}
-@media (max-width: 480px) {
-  .circle {
-    margin-left: 5px;
-  }
+  margin-left: 2%;
 }
 .addpoll {
   color: #8f262a;

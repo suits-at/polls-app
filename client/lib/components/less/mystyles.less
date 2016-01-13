@@ -2,6 +2,9 @@
 @background-red: #8F262A;
 @lightgrey: #F0F0F0;
 
+@btn-primary-bg: @background-red;
+@btn-primary-border: darken(@btn-primary-bg, 5%);
+
 
 //google fonts
 @import url(https://fonts.googleapis.com/css?family=Oleo+Script);
@@ -35,14 +38,11 @@ h1{
 
 
 .content{
+  margin: auto;
   text-align: center;
   margin-top: 80px;
 }
 
-.mypoll{
-  text-align: left;
-  padding-left: 20px;
-}
 
 .pollinfo{
   line-height: 5px;
@@ -71,11 +71,6 @@ main a{
   max-width: 400px;
 }
 
-.btn-default {
-  width:70%;
-  max-width: 400px;
-}
-
 .registerlink{
   margin-top: 100px;
 }
@@ -85,6 +80,35 @@ main a{
 .registerlink a:hover{
   color: #fff;
   text-decoration: underline;
+}
+
+.btn-default{
+  margin-top:10px;
+}
+
+.btn-primary{
+  background: @btn-primary-bg;
+  border: @btn-primary-border;
+  margin-top:10px;
+}
+
+.btn-primary:hover {
+  color: #ffffff;
+  background-color: @btn-primary-border;
+  border-color:@btn-primary-border;
+}
+
+.infotext{
+  margin: auto;
+  margin-top: 30px;
+  background-color: #ccc;
+  width:300px;
+  padding: 15px;
+  border: 1px solid #000;
+}
+
+.infotext p{
+  text-align: left;
 }
 
 .dauer {
@@ -113,14 +137,28 @@ main a{
   display: inline-block;
 }
 
+.profile{
+  position: absolute;
+  right:0px;
+  margin-right: 20px;
+  margin-top: 20px;
+}
+
+.login-link-text:hover{
+  color:#fff;
+}
+
+
 .fa-chevron-left{
   margin-top: 20px;
   margin-left: 20px;
+  left:0px;
+  position: absolute;
 }
 
-.fa-chevron-right{
-  margin-top: 20px;
+.fa-user {
   margin-right: 20px;
+  margin-top: 20px;
 }
 
 
@@ -143,6 +181,7 @@ main a{
 .mypollslist li{
   overflow: auto;
   padding: 10px;
+  text-align: left;
 }
 
 .link a{
@@ -152,12 +191,24 @@ main a{
 
 .titlePoll a{
   color:#000;
-  line-height: 7px;
   text-decoration: none;
 }
+.titlePoll{
+  float:left;
+  margin-top: 10px;
+  margin-left: 20px;
+}
 
-#delete {
-  padding-left: 10px;
+.delete {
+  padding-left: 20px;
+}
+
+
+.options a{
+  color:#000;
+  line-height: 7px;
+  text-decoration: none;
+  float: right;
 }
 
 
