@@ -7,6 +7,13 @@ Template.userview_diagram.helpers
   poll: ->
     return Polls.findOne(FlowRouter.getParam('pollId'))
 
+Template.userview_diagram.onRendered ->
+  this.autorun =>
+    Meteor.subscribe 'allPolls', {
+      onReady: =>
+        @$('.ui.styled.accordion').accordion()
+    }
+
 Template.userview_diagram.generatePieChart = -> 
     poll = Polls.findOne(FlowRouter.getParam('pollId'))
     poll = poll.raw 'options_poll'

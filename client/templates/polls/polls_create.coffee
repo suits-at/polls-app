@@ -18,14 +18,12 @@ Template.polls_index.onRendered ->
     ready: ->
       @loader = false
     created: ->
-#      @subscription = Meteor.subscribe('allPolls')
       Tracker.autorun =>
         @polls = Polls.find({ "ownerId" : Meteor.userId() }, sort: createdAt: -1).fetch()
   }
 
 
 Template.polls_create.onRendered ->
-#  ownerId = Meteor.userId();
   vm = new Vue {
     el: '#polls_create_form'
     data:
@@ -53,11 +51,6 @@ Template.polls_create.onRendered ->
           if poll.validate()
             poll.save()
             FlowRouter.go('polls_index')
-#          Meteor.call 'pollInsert', poll, (error, result) ->
-#            if error
-#              return alert error.reason
-#            else
-#              FlowRouter.go 'polls_index'
         else
           alert 'Title can\'t be empty!'
   }
