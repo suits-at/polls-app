@@ -118,9 +118,6 @@ Template.userview_diagram.onRendered ->
     'options_poll.optioncount'
   ])
 
-  Template.Play.generatePieChart();
-
-
   new Vue {
     el: '#polls_diagram'
     data:
@@ -142,3 +139,5 @@ Template.userview_diagram_pie.onRendered ->
     'options_poll.optiontitle'
     'options_poll.optioncount'
   ])
+
+  Template.userview_diagram.generatePieChart();
