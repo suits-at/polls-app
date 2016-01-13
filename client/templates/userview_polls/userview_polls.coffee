@@ -9,13 +9,6 @@ Template.userview_polls.helpers
   poll: ->
     return Polls.findOne(FlowRouter.getParam('pollId'))
 
-
-#Template.userview_polls.event ->
-#  'load .option' ->
-#    console.log $('input[class^="option"]').length;
-
-
-
 Template.userview_polls.onRendered ->
   this.autorun =>
     Meteor.subscribe 'allPolls', {
@@ -50,7 +43,6 @@ Template.userview_polls.onRendered ->
           if poll.validate()
             poll.save()
             FlowRouter.go('/polls/diagram/'+FlowRouter.getParam('pollId'))
-#            FlowRouter.go('userview_diagram')
 
         else
           alert 'Your name can\'t be empty!'
