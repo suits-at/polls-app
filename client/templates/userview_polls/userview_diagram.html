@@ -23,8 +23,8 @@
                 {{> highchartsHelper chartId="diagram" chartWidth="100%" chartHeight="auto" chartObject=generatePieChart}}
             {{/if}}
         </div>
-        
-        {{>userview_diagram_pie}}
+
+        <div id="container-pie"></div>
 
         <div class="ui styled accordion">
             {{#each poll.options_poll}}
@@ -40,15 +40,8 @@
                 </div>
             {{/each}}
         </div>
-
       </div>
 </div>
 
-</template>
-
-<template name="userview_diagram_pie">
-    <h2>pieDemo</h2>
-    <div id="container-pie" style="width: 300px; height: 200px;">
-    </div>
 </template>
 
