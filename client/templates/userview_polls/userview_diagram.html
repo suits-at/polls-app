@@ -5,10 +5,13 @@
                 <i class="fa fa-chevron-left fa-2x fa-pull-left "></i>
             </a>
             <h3> {{poll.title}}</h3>
+              <span class="profile">
             {{ > loginButtons}}
+          </span>
         </div>
     </header>
 
+  <div class="mypollslist">
 
     <div id="polls_diagram">
 
@@ -39,9 +42,10 @@
         </div>
 
       </div>
-
+</div>
 
 </template>
+
 <template name="userview_diagram_pie">
     <h2>pieDemo</h2>
     <div id="container-pie" style="width: 300px; height: 200px;">

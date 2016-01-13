@@ -124,20 +124,7 @@ Template.userview_diagram.generateColumnChart = ->
 
   }
 
-Template.userview_diagram_pie.generatePieChart = ->
-  data = new Array
-  data.push
-    name: 'Level 0'
-    y: 10
-    color: '#55BF3B'
-  data.push
-    name: 'Level 1'
-    y: 12
-    color: '#DDDF0D'
-  data.push
-    name: 'Level 2'
-    y: 30
-    color: '#DF5353'
+Template.userview_diagram.generatePieChart = (data) ->
   $('#container-pie').highcharts
     chart:
       plotBackgroundColor: null
@@ -162,6 +149,14 @@ Template.userview_diagram.onRendered ->
   @autorun =>
     @subscribe('allPolls')
 
+  data = Polls.find()
+
+  data = data.get('options_poll.optiontitle')
+  data = data.get([
+    'options_poll.optiontitle'
+    'options_poll.optioncount'
+  ])
+
   new Vue {
     el: '#polls_diagram'
     data:
@@ -178,5 +173,10 @@ Template.userview_diagram_pie.onRendered ->
   @autorun =>
     @subscribe('allPolls')
 
+  data = Polls.find()
+  data = data.get([
+    'options_poll.optiontitle'
+    'options_poll.optioncount'
+  ])
 
-  Template.userview_diagram_pie.generatePieChart()
+  Template.userview_diagram.generatePieChart();
