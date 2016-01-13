@@ -15,9 +15,18 @@
 
     <div id="polls_diagram">
 
-        <div id="container-pie"></div>
 
-        <div class="ui styled accordion">
+        <div id="diagram_div">
+            {{#if poll.charttype}}
+                {{> highchartsHelper chartId="diagram" chartWidth="100%" chartHeight="auto" chartObject=generateColumnChart}}
+            {{else}}
+                {{> highchartsHelper chartId="diagram" chartWidth="100%" chartHeight="auto" chartObject=generatePieChart}}
+            {{/if}}
+        </div>
+
+        
+
+        <div class="ui styled accordion">   
             {{#each poll.options_poll}}
               <div class="title"><i class="dropdown icon"></i>{{optiontitle}}    {{optioncount}}</div>
 
@@ -27,6 +36,7 @@
                       <p class="transition">{{this}}</p>
                   {{/each}}
 
+
                 </div>
             {{/each}}
         </div>
@@ -34,4 +44,3 @@
 </div>
 
 </template>
-
