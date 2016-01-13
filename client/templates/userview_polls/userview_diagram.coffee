@@ -1,6 +1,6 @@
 Template.userview_diagram.onCreated ->
   @autorun =>
-    @subscribe('allPolls')
+    @subscribe 'allPolls'
 
 Template.userview_diagram.helpers
   path_polls_index: -> FlowRouter.path 'polls_index'
@@ -9,9 +9,10 @@ Template.userview_diagram.helpers
 
 Template.userview_diagram.onRendered ->
   this.autorun =>
-    Meteor.subscribe 'allPolls', {
+    @subscribe 'allPolls', {
       onReady: =>
         @$('.ui.styled.accordion').accordion()
+
         poll = Polls.findOne(FlowRouter.getParam('pollId'))
         poll = poll.raw 'options_poll'
         data = []
@@ -37,7 +38,7 @@ Template.userview_diagram.onRendered ->
             plotShadow: false
           title: text: ''
           credits: enabled: false
-          tooltip: pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+          tooltip: pointFormat: '{series.name}: <b>{point.percentage}%</b>'
           plotOptions: pie:
             allowPointSelect: true
             cursor: 'pointer'
