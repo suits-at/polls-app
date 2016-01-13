@@ -15,7 +15,6 @@
 
     <div id="polls_diagram">
 
-
         <div id="diagram_div">
             {{#if poll.charttype}}
                 {{> highchartsHelper chartId="diagram" chartWidth="100%" chartHeight="auto" chartObject=generateColumnChart}}
@@ -24,7 +23,7 @@
             {{/if}}
         </div>
 
-
+        <br />
         <div class="ui styled accordion">   
             {{#each poll.options_poll}}
               <div class="title"><i class="dropdown icon"></i>{{optiontitle}}    {{optioncount}}</div>
@@ -34,7 +33,6 @@
                   {{#each persons}}
                       <p class="transition">{{this}}</p>
                   {{/each}}
-
 
                 </div>
             {{/each}}
