@@ -21,14 +21,14 @@
             {{/if}}
         </div>
 
-        <div class="ui accordion">
+        <div class="ui styled accordion">
             {{#each poll.options_poll}}
               <div class="title"><i class="dropdown icon"></i>{{optiontitle}}    {{optioncount}}</div>
 
               <div class="content">
 
                   {{#each persons}}
-                      <p class="transition hidden">{{this}}</p>
+                      <p class="transition">{{this}}</p>
                   {{/each}}
 
 

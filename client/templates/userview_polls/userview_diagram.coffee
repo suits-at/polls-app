@@ -11,10 +11,12 @@ Template.userview_diagram.helpers
 
 Template.userview_diagram.onRendered ->
   #alert "asdf"
-  $('.ui.accordion')
-    .accordion('refresh')
-    return
 
+  this.autorun =>
+    Meteor.subscribe 'allPolls', {
+      onReady: =>
+        @$('.ui.styled.accordion').accordion()
+    }
 
 Template.userview_diagram.generateColumnChart = ->
   return {

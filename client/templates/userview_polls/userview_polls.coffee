@@ -1,30 +1,27 @@
 Template.userview_polls.onCreated ->
   @autorun =>
     @subscribe('allPolls')
-  console.log $('input[class^="option"]').length;
+
 
 
 Template.userview_polls.helpers
   path_polls_index: -> FlowRouter.path 'polls_index'
   poll: ->
     return Polls.findOne(FlowRouter.getParam('pollId'))
-  setChecked: ->
-    $('input[class^="option"]:first').attr('checked', true)
-    return '';
+
 
 #Template.userview_polls.event ->
 #  'load .option' ->
 #    console.log $('input[class^="option"]').length;
 
-init = ->
-    console.log $('input[class^="option"]').length;
+
 
 Template.userview_polls.onRendered ->
-  $('body').attr({onload: 'init();'})
-
-  $(document).ready ->
-    console.log $('input[class^="option"]').length;
-  $('input[class^="option"]:first').attr('checked', true)
+  this.autorun =>
+    Meteor.subscribe 'allPolls', {
+      onReady: =>
+        this.$('input.option').first().prop('checked', true)
+    }
 
   new Vue {
     el: '#polls_vote_form'
