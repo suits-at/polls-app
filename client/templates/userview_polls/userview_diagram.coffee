@@ -1,12 +1,22 @@
-#Template.userview_diagram.onCreated ->
-#  @autorun =>
-#    @subscribe('allPolls')
+Template.userview_diagram.onCreated ->
+  @autorun =>
+    @subscribe('allPolls')
 
 Template.userview_diagram.helpers
   path_polls_index: -> FlowRouter.path 'polls_index'
   poll: ->
-    console.log FlowRouter.getParam('pollId')
+    #console.log FlowRouter.getParam('pollId')
     return Polls.findOne(FlowRouter.getParam('pollId'))
+
+
+Template.userview_diagram.onRendered ->
+  #alert "asdf"
+
+  this.autorun =>
+    Meteor.subscribe 'allPolls', {
+      onReady: =>
+        @$('.ui.styled.accordion').accordion()
+    }
 
 Template.userview_diagram.generateColumnChart = ->
   return {
@@ -132,6 +142,3 @@ Template.userview_diagram_pie.onRendered ->
     'options_poll.optiontitle'
     'options_poll.optioncount'
   ])
-
-  Template.userview_diagram.generatePieChart(data)
-  return

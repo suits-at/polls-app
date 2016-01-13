@@ -9,7 +9,6 @@
         </div>
     </header>
 
-
     <div id="polls_diagram">
 
 
@@ -21,26 +20,21 @@
             {{/if}}
         </div>
 
-        <div class="ui styled accordion">
+        <div id="options_details">
             {{#each poll.options_poll}}
-              <div class="title"><i class="dropdown icon"></i>{{optiontitle}}    {{optioncount}}</div>
-
-              <div class="content">
+              <h3>{{optiontitle}}    {{optioncount}}</h3>
+              <div class="option_voters">
 
                   {{#each persons}}
-                      <p class="transition">{{this}}</p>
+                      <div>{{this}}</div>
                   {{/each}}
 
 
                 </div>
             {{/each}}
+
         </div>
 
-      </div>
+    </div>
 
-
-</template>
-<template name="userview_diagram_pie">
-    <h2>pieDemo</h2>
-    <div id="container-pie" style="width: 300px; height: 200px;"></div>
 </template>

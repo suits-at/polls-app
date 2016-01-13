@@ -24,12 +24,13 @@
                     {{#each poll.options_poll}}
                         <input type="radio" name="options" class="option" value="{{optiontitle}}" id="{{optiontitle}}">
                         <label for="{{optiontitle}}">{{optiontitle}}</label><br/>
+
                     {{/each}}
 
                 </fieldset>
             </div>
         </div>
-
+        
         <button type="submit" name="button">Vote</button>
     </form>
 </template>

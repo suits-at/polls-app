@@ -2,19 +2,38 @@ Template.userview_polls.onCreated ->
   @autorun =>
     @subscribe('allPolls')
 
+
+
 Template.userview_polls.helpers
   path_polls_index: -> FlowRouter.path 'polls_index'
   poll: ->
     return Polls.findOne(FlowRouter.getParam('pollId'))
 
+
+#Template.userview_polls.event ->
+#  'load .option' ->
+#    console.log $('input[class^="option"]').length;
+
+
+
 Template.userview_polls.onRendered ->
-  $a = $('input[class^="option"]:first').attr('checked', true)
-  console.log $a
+  this.autorun =>
+    Meteor.subscribe 'allPolls', {
+      onReady: =>
+        this.$('input.option').first().prop('checked', true)
+    }
+
   new Vue {
     el: '#polls_vote_form'
     data:
       pollvoter: ''
     methods:
+      ready: ->
+        $('input[class^="option"]:first').attr('checked', true)
+      created: ->
+        $('input[class^="option"]:first').attr('checked', true)
+
+
       submit: (e) ->
         e.preventDefault()
         if @pollvoter
@@ -36,3 +55,4 @@ Template.userview_polls.onRendered ->
         else
           alert 'Your name can\'t be empty!'
   }
+  return
