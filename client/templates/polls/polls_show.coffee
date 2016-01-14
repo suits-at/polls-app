@@ -13,8 +13,6 @@ Template.polls_share.onCreated ->
 Template.polls_share.onRendered ->
   new Clipboard('.btn');
 
-  console.log
-
   new Vue {
     el: '[vue=polls_share]'
     data:
