@@ -1,5 +1,6 @@
 Template.polls_share.helpers
   path_polls_index: -> FlowRouter.path 'polls_index'
+  path_root: -> document.URL
 
 Template.polls_share.onCreated ->
   Vue.config.delimiters = [
@@ -10,6 +11,10 @@ Template.polls_share.onCreated ->
     @subscribe('allPolls')
 
 Template.polls_share.onRendered ->
+  new Clipboard('.btn');
+
+  console.log
+
   new Vue {
     el: '[vue=polls_share]'
     data:
@@ -20,4 +25,3 @@ Template.polls_share.onRendered ->
       Tracker.autorun =>
         @poll = Polls.findOne(@pollId)
   }
-

@@ -12,6 +12,7 @@
                 {{ > loginButtons}}
               </span>
             </div>
+
         </header>
 
         <div class="content">
@@ -19,8 +20,10 @@
         <h4>[[poll.title]]</h4>
 
         <div class="mypollslist">
-
-                <p>Copy <span class="link"><a href="/polls/show/[[poll._id]]">this Link</a></span> and share it however you'd like!</p>
+          <button class="btn" data-clipboard-text="{{path_root}}">
+            Click to copy the link and share it however you'd like!
+          </button>
+              
 
                     <div class="infotext">
                       <p>
